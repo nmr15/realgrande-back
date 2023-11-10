@@ -7,7 +7,7 @@ const { allRouter } = require("./routes/allRoutes")
 
 const app = express();
 app.use(express.json());
-let corspolicy = { origin: 'http://localhost:3000' }
+let corspolicy = { origin: process.env.FRONTEND_URL }
 app.use(cors(corspolicy));
 
 // const port = 3001;
