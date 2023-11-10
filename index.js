@@ -14,7 +14,7 @@ app.use(cors(corspolicy));
 
 const db = module.exports = async () => {
   try {
-    await mongoose.connect('mongodb+srv://atlascluster.5m8bpqm.mongodb.net/realgrande?retryWrites=true&w=majority', { user: process.env.DBUSERNAME, pass: process.env.DBPASSWORD, useNewUrlParser: true, useUnifiedTopology: true })
+    await mongoose.connect(process.env.DBURI, { user: process.env.DBUSERNAME, pass: process.env.DBPASSWORD, useNewUrlParser: true, useUnifiedTopology: true })
     // mongoose.connect('mongodb+srv://mern:forFSD15@atlascluster.5m8bpqm.mongodb.net/?retryWrites=true&w=majority')
     console.log("MongoDB Connection is Successful")
   } catch (error) {
