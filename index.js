@@ -7,8 +7,18 @@ const { allRouter } = require("./routes/allRoutes")
 
 const app = express();
 app.use(express.json());
-let corspolicy = { origin: process.env.FRONTEND_URL }
-app.use(cors(corspolicy));
+// let corspolicy = { origin: process.env.FRONTEND_URL }
+// app.use(cors(corspolicy));
+
+app.use((req, res, next) => 
+{
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+  next();
+});
 
 // const port = 3001;
 
